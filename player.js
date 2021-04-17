@@ -9,9 +9,11 @@ let timer = null;
 btnPlay.addEventListener('click', vidAction);
 btnPause.addEventListener('click', vidAction);
 btnStop.addEventListener('click', vidAction);
-btnNext.addEventListener('click', nextVideo);
+// btnNext.addEventListener('click', nextVideo);
 myVideo.addEventListener('ended', vidEnded);
-
+btnNext0.addEventListener('click', nextVideo);
+btnNext1.addEventListener('click', nextVideo);
+btnNext2.addEventListener('click', nextVideo);
 //Vids
 const vids = ["elpadre.mp4", "elhijo.mp4", "vulkem.mp4"];
 let vidPlaying = 0;
@@ -61,14 +63,36 @@ function vidEnded() {
     playVideo();
 }
 
-function nextVideo() {
-    if(vidPlaying < 2){
-        vidPlaying++;
-    } else {
-        vidPlaying = 0;
+function nextVideo(event) {
+    // if(vidPlaying < 2){
+    //     vidPlaying++;
+    // } else {
+    //     vidPlaying = 0;
+    // }
+    switch(event.target.id){
+        case "btnNext1":
+            myVideo.src = "videos/" + vids[1];
+            vidNum.innerHTML = "2/3";        
+            playVideo();
+            timer = setInterval(update, 100);
+            break;
+        case "btnNext0":
+            myVideo.src = "videos/" + vids[0];
+            vidNum.innerHTML = "1/3";        
+            playVideo();
+            timer = setInterval(update, 100);
+            break;
+        case "btnNext2":
+            myVideo.src = "videos/" + vids[2];
+            vidNum.innerHTML = "3/3";        
+            playVideo();
+            timer = setInterval(update, 100);
+            break;
     }
-    myVideo.src = "videos/" + vids[vidPlaying];
-    vidNum.innerHTML = (vidPlaying+1) + "/3";
+
+
+    // myVideo.src = "videos/" + vids[vidPlaying];
+    // vidNum.innerHTML = (vidPlaying+1) + "/3";
 }
 
 
