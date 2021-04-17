@@ -6,11 +6,11 @@ const timeOut = document.getElementById('timeOut');
 const vidNumOut = document.getElementById('vidNum');
 let timer = null;
 
-btnPlay.addEventListener('click,vidAction');
-btnPause.addEventListener('click,vidAction');
-btnStop.addEventListener('click,vidAction');
-btnNext.addEventListener('click, nextVideo');
-myVideo.addEventListener('ended, vidEnded');
+btnPlay.addEventListener('click', vidAction);
+btnPause.addEventListener('click', vidAction);
+btnStop.addEventListener('click', vidAction);
+btnNext.addEventListener('click', nextVideo);
+myVideo.addEventListener('ended', vidEnded);
 
 //Vids
 const vids = ["elpadre.mp4", "elhijo.mp4", "vulkem.mp4"];
@@ -67,7 +67,7 @@ function nextVideo() {
     } else {
         vidPlaying = 0;
     }
-    myVideo.src = "videos/" + vids{vidPlaying};
+    myVideo.src = "videos/" + vids[vidPlaying];
     vidNum.innerHTML = (vidPlaying+1) + "/3";
 }
 
